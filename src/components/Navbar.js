@@ -19,9 +19,11 @@ const Navbar = () => {
               <BsCart3 />
               <span className='cart-counter absolute -top-3 -right-3 text-x5 bg-orange-600 h-5 w-5 rounded-full flex items-center justify-center font-me'> 10</span>
             </span>
+
           </Link>
         </div>
       </div>
+      
     </div>
   )
 }
