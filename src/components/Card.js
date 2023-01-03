@@ -1,7 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { currencyFormatter } from '../utlities/currencyFormatter'
 const Card = ({product}) => {
 
+
+  const navigate=useNavigate()
+  const addToCardHandler=(id)=>{
+    console.log(id)
+    navigate("/cart")
+  }
   
 
   return (
@@ -17,7 +24,9 @@ const Card = ({product}) => {
         <p className='details text-gray-500 h-[6rem]'> {product.description}</p>
         <div className='flex justify-between items-center font-medium text-rose-500'> 
           <span className='price text-xl '>{currencyFormatter(product.price)}</span>
-          <button className='uppercase bg-violet-500 text-violet-50 font-medium py-3 px-8 rounded-md hover:bg-rose-500 hover:text-rose-50 duration-300 shadow-lg shadow-violet-300 hover:shadow-rose-300'>Add to cart</button>
+          <button 
+          onClick={()=>addToCardHandler(product.id)}
+          className='uppercase bg-violet-500 text-violet-50 font-medium py-3 px-8 rounded-md hover:bg-rose-500 hover:text-rose-50 duration-300 shadow-lg shadow-violet-300 hover:shadow-rose-300'>Add to cart</button>
         </div>
         </div>
       </div>
