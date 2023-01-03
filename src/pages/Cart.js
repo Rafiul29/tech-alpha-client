@@ -1,6 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { currencyFormatter } from "../utlities/currencyFormatter";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft} from "react-icons/bs";
 const data = [
   {
     id: 1,
