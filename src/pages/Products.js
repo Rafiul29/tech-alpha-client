@@ -6,6 +6,7 @@ import Card from '../components/Card'
 
 const Products = () => {
 
+  //redux state access
  const {items:data, status}= useSelector((state)=>state.products)
 
   return <div className='products-section container mx-auto py-10'>

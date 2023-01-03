@@ -53,18 +53,18 @@ const Cart = () => {
               />
               <div className="details flex flex-col gap-3 items-start">
                 <span>{product.name}</span>
-                <button className="uppercase">Remove</button>
+                <button className="uppercase hover:text-rose-300 duration-300">Remove</button>
               </div>
             </div>
             <div className="unit-price">{currencyFormatter(product.price)}</div>
             <div className="counter flex">
-              <button className="h-10 w-10 bg-gray-200 active:bg-gray-700 active:text-gray-50">
+              <button className="h-10 w-10 border border-gray-300 bg-gray-200 active:bg-gray-700 active:text-gray-50">
                 -
               </button>
-              <button className="h-10 w-10 bg-gray-200 active:bg-gray-700 active:text-gray-50">
+              <button className="h-10 w-10 border border-gray-300  bg-gray-200 active:bg-gray-700 active:text-gray-50">
                 1
               </button>
-              <button className="h-10 w-10 bg-gray-200 active:bg-gray-700 active:text-gray-50">
+              <button className="h-10 w-10 border border-gray-300 bg-gray-200 active:bg-gray-700 active:text-gray-50">
                 +
               </button>
             </div>
@@ -76,7 +76,7 @@ const Cart = () => {
         ))}
       </div>
       <div className="cart-lower flex justify-between items-start py-10">
-        <button className="clear-btn ">Clear Cart</button>
+        <button className="clear-btn uppercase bg-gray-100 py-3 px-5 border border-gray-200 font-medium hover:text-rose-600 hover:border-rose-200 duration-300 ">Clear Cart</button>
         <div className="flex flex-col items-start gap-2">
           <div className="top flex justify-between w-full  text-2xl font-medium ">
             <span>Subtotal</span>
