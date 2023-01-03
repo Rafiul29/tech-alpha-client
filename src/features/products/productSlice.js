@@ -22,14 +22,14 @@ export const productSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(productsFetching.pending, (state, action) => {
-      state.status = "pending";
+      state.status = "Loading .......";
     });
     builder.addCase(productsFetching.fulfilled, (state, action) => {
-      state.status = "successfull";
+      state.status = "";
       state.items = action.payload;
     });
     builder.addCase(productsFetching.rejected, (state, action) => {
-      state.status = "rejected";
+      state.status = "Something went wrong";
     });
   },
 });
