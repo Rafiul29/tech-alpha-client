@@ -9,10 +9,17 @@ import Cart from './pages/Cart'
 
 
 const App = () => {
+
+  const isNavActiveStyles=({isActive})=>{
+    return {
+      color: isActive ? "#f97316":null,
+    };
+  }
+
   return (
    <>
     <div className='app min-h-screen bg-gray-50 text-gray-700'>
-        <Navbar/>
+        <Navbar  isNavActiveStyles={isNavActiveStyles}/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/products' element={<Products/>}/>
