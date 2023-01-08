@@ -1,40 +1,42 @@
 import { useNavigate } from "react-router-dom";
+import {Link} from "react-router-dom"
 import { currencyFormatter } from "../utlities/currencyFormatter";
-import { BsArrowLeft} from "react-icons/bs";
-const data = [
-  {
-    id: 1,
-    name: "Blink Mini – Compact indoor plug-in smart security camera",
-    description:
-      "Monitor the inside of your home day and night with our 1080P HD indoor plug-in smart security camera",
-    price: 64.99,
-    image:
-      "https://res.cloudinary.com/dy28teazb/image/upload/v1668172648/React%20Shopping/Products/81-585-013-01_a04wkd.jpg",
-    category: "Camera",
-  },
-  {
-    id: 2,
-    name: "Vlogging Camera, 4K Digital Camera for YouTube with WiFi",
-    description:
-      "It's super suitable for the 'happy snapper' who just hope to point and shoot to take good quality images",
-    price: 109.99,
-    image:
-      "https://res.cloudinary.com/dy28teazb/image/upload/v1668172649/React%20Shopping/Products/81pgsjFGpmL_qundpd.jpg",
-    category: "Camera",
-  },
-];
-const Cart = () => {
-  const navigate=useNavigate()
+import { BsArrowLeft } from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart,clearCart ,decreaseCart,addToCart} from "../features/products/cartSlice.js";
 
- const productCard=()=>{
-  navigate("/products")
+const Cart = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { cartItems: data } = useSelector((state) => state.cart);
+
+  const productCard = () => {
+    navigate("/products");
+  };
+
+  const handleRemove = (product) => {
+    dispatch(removeFromCart(product));
+  };
+
+  const handleDecrease=(product)=>{
+    dispatch(decreaseCart(product))
+  }
+
+  const handleIncrease=(product)=>{
+    dispatch(addToCart(product))
   }
   return (
     <div className="cart-section container mx-auto py-10">
       <h2 className="section-title uppercase text-2xl font-bold space-font text-center mb-10">
-        Shopping
+      {data.length>0? "Your Cart":"Cart is Empty" }
       </h2>
-
+      <div className="text-center">
+       {data.length===0 && (
+        <Link to="/products" className="text-sky-500 cursor-pointer">Start Shopping now</Link>
+       )}
+      </div>
+      {data.length>0 && (
+      <>
       <div className="cart-container">
         <div className="product-headlines grid grid-cols-5 gap-10 border-b pb-3 uppercase font-medium">
           <div className="col-product col-span-2">Product</div>
@@ -43,7 +45,7 @@ const Cart = () => {
           <div className="col-total-price ml-auto">TOtal price</div>
         </div>
 
-        {data.map((product) => (
+        {data?.map((product) => (
           <div className="product grid grid-cols-5 gap-10 mt-10 border-b pb-5">
             <div className="left flex col-span-2">
               <img
@@ -53,18 +55,27 @@ const Cart = () => {
               />
               <div className="details flex flex-col gap-3 items-start">
                 <span>{product.name}</span>
-                <button className="uppercase hover:text-rose-300 duration-300">Remove</button>
+                <button
+                  onClick={() => handleRemove(product)}
+                  className="uppercase hover:text-rose-300 duration-300"
+                >
+                  Remove
+                </button>
               </div>
             </div>
             <div className="unit-price">{currencyFormatter(product.price)}</div>
             <div className="counter flex">
-              <button className="h-10 w-10 border border-gray-300 bg-gray-200 active:bg-gray-700 active:text-gray-50">
+              <button 
+              onClick={()=>handleDecrease(product)}
+              className="h-10 w-10 border border-gray-300 bg-gray-200 active:bg-gray-700 active:text-gray-50">
                 -
               </button>
               <button className="h-10 w-10 border border-gray-300  bg-gray-200 active:bg-gray-700 active:text-gray-50">
-                1
+               {product.cartQuantity}
               </button>
-              <button className="h-10 w-10 border border-gray-300 bg-gray-200 active:bg-gray-700 active:text-gray-50">
+              <button 
+              onClick={()=>handleIncrease(product)}
+              className="h-10 w-10 border border-gray-300 bg-gray-200 active:bg-gray-700 active:text-gray-50">
                 +
               </button>
             </div>
@@ -76,7 +87,12 @@ const Cart = () => {
         ))}
       </div>
       <div className="cart-lower flex justify-between items-start py-10">
-        <button className="clear-btn uppercase bg-gray-100 py-3 px-5 border border-gray-200 font-medium hover:text-rose-600 hover:border-rose-200 duration-300 ">Clear Cart</button>
+        <button
+          onClick={() => dispatch(clearCart())}
+          className="clear-btn uppercase bg-gray-100 py-3 px-5 border border-gray-200 font-medium hover:text-rose-600 hover:border-rose-200 duration-300 hover:bg-rose-200"
+        >
+          Clear Cart
+        </button>
         <div className="flex flex-col items-start gap-2">
           <div className="top flex justify-between w-full  text-2xl font-medium ">
             <span>Subtotal</span>
@@ -87,17 +103,19 @@ const Cart = () => {
           </p>
           <button className="checkout bg-sky-500 w-full py-3 uppercase font-medium text-sky-50 tracking-widest hover:bg-sky-600 duration-300">
             Checkout
-          </button >
-            {" "}
-            <button className="continune uppercase text-sky-500 font-medium flex gap-1 mt-2" 
+          </button>{" "}
+          <button
+            className="continune uppercase text-sky-500 font-medium flex gap-1 mt-2"
             onClick={productCard}
-            >
-              <BsArrowLeft className="mt-1" />
-              <span>Continue Shopping</span>
-            </button>
-
+          >
+            <BsArrowLeft className="mt-1" />
+            <span>Continue Shopping</span>
+          </button>
         </div>
       </div>
+      </>)
+      }
+      
     </div>
   );
 };

@@ -1,9 +1,12 @@
-import React from "react";
+
 import { Link,NavLink } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 
 const Navbar = ({ isNavActiveStyles }) => {
+
+
   return (
     <div className="navbar-bg  bg-violet-500 text-violet-50 h-20  flex justify-center items-center">
       <div className="navbar container  mx-auto flex justify-between items-center">
