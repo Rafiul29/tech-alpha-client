@@ -8,6 +8,7 @@ const Products = () => {
 
   //redux state access
  const {items:data, status}= useSelector((state)=>state.products)
+ console.log(data)
 
   return <div className='products-section container mx-auto py-10'>
     <h2 className='section-title uppercase text-2xl font-bold space-font text-center mb-10'>Browse all Products</h2>
