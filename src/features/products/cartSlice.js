@@ -15,7 +15,7 @@ const cartSlice = createSlice({
     addToCart(state, action) {
       //check if the items is already in the cart
       const existedItemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
 
       // if exist
@@ -55,7 +55,7 @@ const cartSlice = createSlice({
     // remove item
     removeFromCart(state, action) {
       const updatedCartItems = state.cartItems.filter(
-        (item) => item.id !== action.payload.id
+        (item) => item._id !== action.payload._id
       );
       state.cartItems = updatedCartItems;
       //update local storage
@@ -91,7 +91,7 @@ const cartSlice = createSlice({
 
     decreaseCart(state, action) {
       const itemIndex = state.cartItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
 
       //if exist
@@ -109,7 +109,7 @@ const cartSlice = createSlice({
           });
       } else if (state.cartItems[itemIndex].cartQuantity === 1) {
         const updatedCartItems = state.cartItems.filter(
-          (item) => item.id !== action.payload.id
+          (item) => item._id !== action.payload._id
         );
         state.cartItems = updatedCartItems;
         toast.warn('Product remove from cart!', {

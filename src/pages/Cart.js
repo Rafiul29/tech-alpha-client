@@ -11,6 +11,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { cartItems: data ,cartTotalAmount:subtotal} = useSelector((state) => state.cart);
 
+  console.log(data)
   const productCard = () => {
     navigate("/products");
   };
@@ -33,6 +34,7 @@ const Cart = () => {
   }, [data,dispatch])
   
 
+  
   return (
     <div className="cart-section container mx-auto py-10">
       <h2 className="section-title uppercase text-2xl font-bold space-font text-center mb-10">
@@ -54,7 +56,7 @@ const Cart = () => {
         </div>
 
         {data?.map((product) => (
-          <div key={product.id} className="product grid grid-cols-5 gap-10 mt-10 border-b pb-5">
+          <div key={product._id} className="product grid grid-cols-5 gap-10 mt-10 border-b pb-5">
             <div className="left flex col-span-2">
               <img
                 src={product.image}
