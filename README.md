@@ -1,6 +1,6 @@
 ## Tech Alpha
 
-Tech-Alpha Ecommerce is an advanced online shopping platform powered by the MERN (MongoDB, Express, React, Node.js) stack. It enables users to enjoy a seamless shopping experience, with a dedicated cart page that allows effortless product additions. The integration of Redux state management ensures a high level of efficiency and flexibility in managing user orders.
+Discover Tech Alpha, where shopping meets innovation. Our MERN backend, fueled by Express, Node, CORS, and dotenv, ensures a dynamic and secure e-commerce adventure. Elevate your shopping experience with us, where technology and convenience converge for a seamless retail journey. 
 
 ## Features
 
