@@ -6,6 +6,7 @@ Tech-Alpha Ecommerce is an advanced online shopping platform powered by the MERN
 
 - Dedicated Cart Page: Users can easily add products to their cart on a dedicated page, providing a smooth and intuitive shopping process
 - State management using Redux Toolkit
+- Fetches product data using Redux thunk.
 - Styling using Tailwind CSS
 
 ## Tools Used
