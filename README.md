@@ -3,10 +3,10 @@
 Tech-Alpha Ecommerce is an advanced online shopping platform powered by the MERN (MongoDB, Express, React, Node.js) stack. It enables users to enjoy a seamless shopping experience, with a dedicated cart page that allows effortless product additions. The integration of Redux state management ensures a high level of efficiency and flexibility. 
 
 ## Features
-
-- Dedicated Cart Page: Users can easily add products to their cart on a dedicated page, providing a smooth and intuitive shopping process
 - State management using Redux Toolkit
 - Fetches product data using Redux thunk.
+- A shopping cart that uses Redux Toolkit for state management.
+- The cart items are saved in the client's browser local storage
 - Styling using Tailwind CSS
 
 ## Tools Used
