@@ -1,16 +1,15 @@
-
 ## Tech Alpha
----
+
 Tech-Alpha Ecommerce is an advanced online shopping platform powered by the MERN (MongoDB, Express, React, Node.js) stack. It enables users to enjoy a seamless shopping experience, with a dedicated cart page that allows effortless product additions. The integration of Redux state management ensures a high level of efficiency and flexibility in managing user orders.
 
 ## Features
----
+
 - Dedicated Cart Page: Users can easily add products to their cart on a dedicated page, providing a smooth and intuitive shopping process
 - State management using Redux Toolkit
 - Styling using Tailwind CSS
 
 ## Tools Used
----
+
 - Frontend: React, Redux
 - Backend: Node.js, Express
 - Database: MongoDB
@@ -18,7 +17,7 @@ Tech-Alpha Ecommerce is an advanced online shopping platform powered by the MERN
 - UI Styling: TailwindCSS
 
 ## Installation (Client)
----
+
 1. Clone this repository: `git clone https://github.com/Rafiul29/tech-alpha-client.git`
 2. Navigate to the client directory: `cd tech-alpha-client`
 3. Install dependencies: `npm install`
@@ -26,7 +25,7 @@ Tech-Alpha Ecommerce is an advanced online shopping platform powered by the MERN
 5. Access the client in your browser at: `http://localhost:3000`
 
 ## Installation (Server)
----
+
 1. Clone this repository: `git clone https://github.com/Rafiul29/tech-alpha-server.git`
 2. Navigate to the server directory: `cd tech-alpha-server`
 3. Install dependencies: `npm install`
@@ -37,7 +36,7 @@ Tech-Alpha Ecommerce is an advanced online shopping platform powered by the MERN
 6. The server will be running at: `http://localhost:5000`
 
 ## Links
----
+
 - [Live Demo](https://tech-alpha-nu.vercel.app/)
 - [Front-End Repository](https://github.com/Rafiul29/tech-alpha-client.git)
 - [Back-End Repository](https://github.com/Rafiul29/tech-alpha-server.git)
