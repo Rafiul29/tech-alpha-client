@@ -5,12 +5,12 @@ import { currencyFormatter } from "../utlities/currencyFormatter";
 import { BsArrowLeft } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart,clearCart ,decreaseCart,addToCart,getSubtotal} from "../features/products/cartSlice.js";
+import PayButton from "../components/PayButton.jsx";
 
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems: data ,cartTotalAmount:subtotal} = useSelector((state) => state.cart);
-
   console.log(data)
   const productCard = () => {
     navigate("/products");
@@ -111,9 +111,10 @@ const Cart = () => {
           <p className="text-gray-400">
             Taxes and shipping costs are calculated at the checkout
           </p>
-          <button className="checkout bg-sky-500 w-full py-3 uppercase font-medium text-sky-50 tracking-widest hover:bg-sky-600 duration-300">
-            Checkout
-          </button>{" "}
+          <PayButton data={data}/>
+          {/* <button className="checkout bg-sky-500 w-full py-3 uppercase font-medium text-sky-50 tracking-widest hover:bg-sky-600 duration-300">
+         {data &&   
+          </button>{" "} */}
           <button
             className="continune uppercase text-sky-500 font-medium flex gap-1 mt-2"
             onClick={productCard}

@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import Cart from './pages/Cart'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css';
+import CheckOutSuccess from './components/CheckOutSuccess'
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route path='/products' element={<Products/>}/>
           <Route path='/products/:id' element={<Products/>}/>
           <Route path='/cart' element={<Cart/>} />
+          <Route path='/checkout-success' element={<CheckOutSuccess/>} />
           <Route path='*' element={<NotFound/>}/>
         </Routes>
     </div>
