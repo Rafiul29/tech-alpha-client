@@ -3,6 +3,7 @@ import axios from "axios";
 
 const PayButton = ({ data }) => {
   const handleCheckout = async () => {
+    
     axios
       .post(`http://localhost:4000/api/stripe/create-checkout-session`, {
         data,
