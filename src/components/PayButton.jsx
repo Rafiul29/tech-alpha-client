@@ -3,14 +3,16 @@ import axios from "axios";
 
 const PayButton = ({ data }) => {
   const handleCheckout = async () => {
-    
+    // https://tech-alpha-qtwm.onrender.com/api
+    // http://localhost:4000/api/
     axios
-      .post(`http://localhost:4000/api/stripe/create-checkout-session`, {
+      .post(`https://tech-alpha-qtwm.onrender.com/api/stripe/create-checkout-session`, {
         data,
         userId: 3,
       })
       .then((response) => {
         if (response.data.url) {
+          console.log(response.data.url)
           window.location.href = response.data.url;
         }
       })

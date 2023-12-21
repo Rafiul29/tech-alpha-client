@@ -11,7 +11,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { cartItems: data ,cartTotalAmount:subtotal} = useSelector((state) => state.cart);
-  console.log(data)
+  
   const productCard = () => {
     navigate("/products");
   };
